@@ -7,6 +7,11 @@ class BooksController < ApplicationController
     @book = Book.create(book_params)
     render json: @book
   end
+
+  def destroy
+    @book = Book.find_by(title: book_params[:title])
+    @book.destroy
+  end
 end
 
 private
